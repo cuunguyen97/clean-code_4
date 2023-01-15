@@ -62,7 +62,12 @@ static volatile double g_dwLightValue;
 /******************************************************************************/
 
 /******************************************************************************/
-
+/**
+ * @func    emberAfMainInitCallback
+ * @brief   Initialize of system and set active to events
+ * @param   None
+ * @retval  None
+ */
 void emberAfMainInitCallback(void)
 {
 	si7020Init();
@@ -72,19 +77,31 @@ void emberAfMainInitCallback(void)
 	emberEventControlSetActive(eventLightSensorAdcPollingRead);
 
 }
+/**
+ * @func    eventScanTempAndHumiHandler
+ * @brief	Get and print the value of temperature
+ * 			Get and print the value of humidity
+ * @param   None
+ * @retval  None
+ */
 void eventScanTempAndHumiHandler(void)
 {
 	emberEventControlSetInactive(eventScanTempAndHumi);
 
-	uint8_t byTemp  = (uint8_t)(Si7020_GetTemp()/100);
-	uint8_t byHumi  = (uint8_t)(Si7020_GetHumi()/100);
+	uint8_t byTemp  = (uint8_t)(dwSi7020GetTemp()/100);
+	uint8_t byHumi  = (uint8_t)(dwSi7020GetHumi()/100);
 	emberAfCorePrintln("TempValue = %d",byTemp);
 	emberAfCorePrintln("HumiValue = %d",byHumi);
 
 	emberEventControlSetDelayMS(eventScanTempAndHumi,10000);
 
 }
-
+/**
+ * @func    eventLightSensorAdcPollingReadHandler
+ * @brief	Get and print the value of light
+ * @param   None
+ * @retval  None
+ */
 void eventLightSensorAdcPollingReadHandler(void)
 {
 

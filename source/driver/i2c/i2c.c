@@ -55,6 +55,12 @@ void i2cWriteRead(uint16_t wSlaveAddress, uint8_t *pbyWrite,
 /******************************************************************************/
 /*                            EXPORTED FUNCTIONS                              */
 /******************************************************************************/
+/**
+ * @func    i2cInit
+ * @brief   Initialize of ADC
+ * @param   None
+ * @retval  None
+ */
 void i2cInit(void)
 {
 	CMU_ClockEnable(cmuClock_I2C0, true);
@@ -86,6 +92,17 @@ void i2cInit(void)
 
 	I2C_Enable(I2C0, true);
 }
+/**
+ * @func    i2cWriteRead
+ * @brief
+ * @param
+	 * wSlaveAddress:
+	 * *pbyWrite:
+	 * byNumBytesOfWrite:
+	 * *pbyRead:
+	 * byNumBytesOfRead:
+ * @retval  None
+ */
 void i2cWriteRead(uint16_t wSlaveAddress, uint8_t *pbyWrite,
 				uint8_t byNumBytesOfWrite, uint8_t *pbyRead,
 				uint8_t byNumBytesOfRead)

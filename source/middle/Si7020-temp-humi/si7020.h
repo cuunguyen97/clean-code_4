@@ -66,8 +66,9 @@
 /******************************************************************************/
 void si7020Init (void);
 void si7020Detect (void);
-uint32_t Si7020_GetHumi (void);
-uint32_t Si7020_GetTemp (void);
+uint32_t dwSi7020GetHumi (void);
+uint32_t dwSi7020GetTemp (void);
+uint8_t byCalculateCRC8(uint8_t *pByData, uint8_t byLength);
 /******************************************************************************/
 /*                            EXPORTED FUNCTIONS                              */
 /******************************************************************************/

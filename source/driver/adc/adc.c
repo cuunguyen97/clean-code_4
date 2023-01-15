@@ -52,7 +52,12 @@
 
 
 
-
+/**
+ * @func    adcInit
+ * @brief   Initialize of GPIO and ADC
+ * @param   None
+ * @retval  None
+ */
 void adcInit(void)
 {
 
